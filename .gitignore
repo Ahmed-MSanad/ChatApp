@@ -1,0 +1,83 @@
+## Build Artifacts
+[Bb]in/
+[Oo]bj/
+[Tt]est[Rr]esults/
+
+## Publishing
+publish/
+*.azurepubxml
+*.pubxml
+*.pubxml.user
+
+## IDE & Editor Specific
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.sln.docstates
+*.userosscache
+
+## User Secrets & Local Config
+appsettings.Development.json
+usersecrets.json
+secrets.json
+
+## Packages
+*.nupkg
+**/packages/
+**/node_modules/
+
+## OS Specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## Logs & Temp
+*.log
+*.tmp
+
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/mcp.json
+.history/*
+
+# Miscellaneous
+client/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+__screenshots__/
+
+# System files
+.DS_Store
+Thumbs.db
