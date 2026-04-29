@@ -9,6 +9,11 @@ publish/
 *.pubxml
 *.pubxml.user
 
+# SQLite
+*.db
+*.db-shm
+*.db-wal
+
 ## IDE & Editor Specific
 .vs/
 .idea/
