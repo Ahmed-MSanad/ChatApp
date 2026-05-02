@@ -1,9 +1,11 @@
 using API.Common;
 using API.Dtos;
+using API.Extensions;
 using API.Models;
 using API.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Endpoints;
 
@@ -12,6 +14,7 @@ public static class AccountEndpoints
     public static RouteGroupBuilder MapAccountEndPoint(this WebApplication app)
     {
         RouteGroupBuilder group = app.MapGroup("/api/account").WithTags("account");
+
 
         group.MapPost("/register", async (HttpContext context, UserManager<AppUser> userManager, [FromForm] RegisterDto registerDto) =>
         {
@@ -58,6 +61,17 @@ public static class AccountEndpoints
                 return Results.Ok(Response<string>.Success(resultToken!, "User Logged in successfully!"));
             return Results.BadRequest(Response<string>.Failure("Error while generating the token!"));
         });
+
+
+        group.MapGet("/me", async (HttpContext context, UserManager<AppUser> userManager) =>
+        {
+            var currentlyLoggedInUserId = context.User.GetUserId()!;
+
+            var currentlyLoggedInUser = await userManager.Users.SingleOrDefaultAsync(x => x.Id == currentlyLoggedInUserId.ToString());
+
+            return Results.Ok(Response<AppUser>.Success(currentlyLoggedInUser!, "User fetched successfully."));
+        }).RequireAuthorization();
+
 
         return group;
     }

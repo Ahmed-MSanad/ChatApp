@@ -19,7 +19,9 @@ public class TokenService(IConfiguration configuration)
         var token = new JwtSecurityToken(
             expires: expiryDate,
             signingCredentials: cred,
-            claims: userClaims
+            claims: userClaims,
+            issuer: configuration["JwtSettings:Issuer"],
+            audience: configuration["JwtSettings:Audience"]
         );
 
         var jwt = new JwtSecurityTokenHandler().WriteToken(token);
