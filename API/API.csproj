@@ -19,8 +19,8 @@
   <ItemGroup>
     <Folder Include="Common\" />
     <Folder Include="Data\" />
-    <Folder Include="Dtos\" />
     <Folder Include="Endpoints\" />
+    <Folder Include="Hubs\" />
     <Folder Include="Models\" />
     <Folder Include="Services\" />
   </ItemGroup>
